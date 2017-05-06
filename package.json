@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "author": "Verem Dugeri <verem.dugeri@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "1.0.2",
+    "body-parser": "1.17.1",
+    "cors": "2.8.3",
+    "dotenv": "4.0.0",
+    "express": "4.15.2",
+    "mysql": "2.13.0",
+    "sequelize": "3.30.4",
+    "validate.js": "0.11.1"
+  },
+  "devDependencies": {
+    "browser-sync": "2.18.8",
+    "gulp": "3.9.1",
+    "gulp-mocha": "4.3.1",
+    "gulp-nodemon": "2.2.1"
+  }
+}
