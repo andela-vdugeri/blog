@@ -36,3 +36,5 @@ class CommentValidator {
     });
   }
 }
+
+module.exports = new CommentValidator();

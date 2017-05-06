@@ -1,6 +1,7 @@
 'use strict';
 
 const models = require('../models');
+const Validator = require('../utils/validators/comment.validator')
 
 
 class CommentController {
