@@ -6,7 +6,7 @@ import Menu from '../menu/menu.vue';
 export default {
   name: 'Blogger',
   components: {
-    'side-menu': Menu,
+    'sidemenu': Menu,
     'header-component': HeaderComponent,
   },
   data() {
