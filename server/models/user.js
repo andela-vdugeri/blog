@@ -20,9 +20,11 @@ module.exports = (Sequelize, DataTypes) => {
         delete user.password;
         return user;
       },
-      matchPasswords(candidatePassword, hash) {
+      matchPasswords(candidatePassword) {
+        const hash = this.password;
+
         return new Promise((resolve, reject) => {
-          bcrypt.compare(candidatePassword, hahs, (err, match) => {
+          bcrypt.compare(candidatePassword, hash, (err, match) => {
             if(err) {
               reject(err);
             } else {
@@ -44,7 +46,7 @@ module.exports = (Sequelize, DataTypes) => {
       }
     }
   });
-  
+
   User.beforeCreate((user, options, next) => {
     bcrypt.genSalt(10, (err, salt) => {
       if(!err) {
