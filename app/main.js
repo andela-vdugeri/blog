@@ -3,14 +3,16 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
+import VueQuillEditor from 'vue-quill-editor';
 import AppComponent from './components/app/app-component.vue';
-import Sidebar from './components/sidebar/sidebar.vue';
 import Post from './components/posts/post.vue';
+import NewPost from './components/posts/create/new-post.vue';
 import Home from './components/home/home.vue';
 import Login from './components/auth/login/login.vue';
 import SignUp from './components/auth/signup/signup.vue';
 
 Vue.use(Router);
+Vue.use(VueQuillEditor);
 
 Vue.component(
   'app-component',
@@ -20,12 +22,14 @@ Vue.component(
 
 
 const routes = [
-  { path: '/', component: Home},
-  { path: '/login', component: Login},
-  { path: '/signup', component: SignUp},
+  { path: '/', component: Home },
+  { path: '/login', component: Login },
+  { path: '/signup', component: SignUp },
+  { path: '/posts/new', component: NewPost },
+  { path: '/posts/:id', component: Post, name: 'post'},
 ];
 
-const router = new Router({
+export let router = new Router({
   routes
 });
 

@@ -1,6 +1,7 @@
 <div id="wrapper">
   <div id="main">
-    <post></post>
+    <div v-for="post in posts">
+      <post :content="post"></post>
+    </div>
   </div>
-  <sidebar></sidebar>
 </div>

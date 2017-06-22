@@ -4,8 +4,8 @@
     <ul>
       <li><a href="#">About</a></li>
       <li><a href="#">Contact Us</a></li>
-      <li><router-link to="/signup">Sign Up</router-link></router-link></li>
-      <li><router-link to="/login">Login</router-link></li>
+      <li v-if="!authenticated"><router-link to="/signup">Sign Up</router-link></router-link></li>
+      <li v-if="!authenticated"><router-link to="/login">Login</router-link></li>
       <li><a href="#">Top Stories</a></li>
     </ul>
   </nav>
@@ -17,7 +17,7 @@
           <input type="text" name="query" placeholder="Search" />
         </form>
       </li>
-      <li class="menu">
+      <li class="menu" v-if="authenticated">
         <a class="fa-bars" href="#menu">Menu</a>
       </li>
     </ul>

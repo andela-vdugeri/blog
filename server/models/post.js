@@ -5,7 +5,7 @@ module.exports = (Sequelize, DataTypes) => {
   const Post = Sequelize.define('Post', {
     id: { type: DataTypes.INTEGER, autoIncrement: true, unique: true, primaryKey: true},
     title: { type: DataTypes.TEXT },
-    body: { type: DataTypes.TEXT }
+    body: { type: DataTypes.BLOB }
   }, {
     underscored: true,
     paranoid: true,

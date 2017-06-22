@@ -1,23 +1,40 @@
 <section class="post center">
   <form>
-    <div class="search">
-      <input type="text" name="username" placeholder="Username"/>
+    <div class="alert error" v-for="error in errors">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      {{ error.message }}
+    </div>
+
+    <div class="alert success" v-if="success.message">
+      {{ success.message }}
     </div>
     &nbsp;
     <div class="search">
-      <input type="email" name="email" placeholder="Email Address"/>
+      <input type="text" name="username" placeholder="First Name" v-model="firstName"/>
     </div>
     &nbsp;
     <div class="search">
-      <input type="password" name="password" placeholder="Password"/>
+      <input type="text" name="username" placeholder="Last Name" v-model="lastName"/>
     </div>
     &nbsp;
     <div class="search">
-      <input type="password" name="password" placeholder="Confirm password"/>
+      <input type="text" name="username" placeholder="Username" v-model="username" @blur="matchUsername"/>
     </div>
     &nbsp;
     <div class="search">
-      <input type="button" name="submit" value="Sign Up"/>
+      <input type="email" name="email" placeholder="Email Address" v-model="emailAddress" @blur="matchEmailAddress"/>
+    </div>
+    &nbsp;
+    <div class="search">
+      <input type="password" name="password" placeholder="Password" v-model="password"/>
+    </div>
+    &nbsp;
+    <div class="search">
+      <input type="password" name="password" placeholder="Confirm password" v-model="password_confirm"/>
+    </div>
+    &nbsp;
+    <div class="search">
+      <input type="button" name="submit" value="Sign Up" @click="signup"/>
     </div>
   </form>
 </section>

@@ -14,7 +14,13 @@ class UserController {
    */
   index(req, res) {
     models.User.findAll().then(users => {
-      return res.status(200).json(users);
+      let allUsers = [];
+
+      users.forEach((user) => {
+        allUsers.push(user.toJson());
+      });
+
+      return res.status(200).json(allUsers);
     }).catch(err => {
       return res.status(500).json(err);
     });
@@ -32,7 +38,7 @@ class UserController {
     const id = req.params.id;
     models.User.findById(id).then(user =>  {
       if (user) {
-        return res.status(200).json(user);
+        return res.status(200).json(user.toJson());
       }
       return res.status(404).json({message: `User with id ${id} not found`});
     }).catch(err => {
@@ -67,6 +73,52 @@ class UserController {
       return res.status(400).json(err);
     });
   }
+
+  /**
+   * Finds a user my username or email address
+   *
+   * @param Request req
+   * @param Response res
+   *
+   * @return Response Object
+   */
+  findBy(req, res) {
+    let username;
+    let emailAddress;
+    if (req.query.username) {
+      username = req.query.username;
+      models.User.findOne({
+        where: {
+          username
+        }
+      }).then(user => {
+        if (user) {
+          return res.status(200).json(user.toJson());
+        }
+        return res.status(200).json(null);
+      }).catch(err => {
+        return res.status(500).json(err);
+      })
+    }
+
+    if (req.query.emailAddress) {
+      emailAddress = req.query.emailAddress;
+
+      models.User.findOne({
+        where: {
+          emailAddress
+        }
+      }).then(user => {
+        if (user) {
+          return res.status(200).json(user.toJson());
+        }
+        return res.status(200).json(null);
+      }).catch(err => {
+        return res.status(500).json(err);
+      });
+    }
+  }
+
   /**
    *Updates a user instance matching the specified id
    *

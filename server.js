@@ -1,3 +1,5 @@
+'use strict';
+
 require('dotenv').load();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 routes(app);
 
-app.use('*', (req, res) => {
+app.use('/', (req, res) => {
   return res.sendFile(__dirname, 'app/index.html');
 });
 

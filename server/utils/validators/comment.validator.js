@@ -9,13 +9,6 @@ class CommentValidator {
       body: {
         presence: true
       },
-      user_id: {
-        presence: true,
-        numericality: {
-          onlyInteger: true,
-          greaterThan: 0
-        }
-      },
       post_id: {
         presence: true,
         numericality: {

@@ -1,15 +1,18 @@
 <section class="post center">
   <form>
+    <div class="alert error" v-for="error in errors">
+      {{ error.message }}
+    </div>
     <div class="search">
-      <input type="text" name="username" placeholder="Username"/>
+      <input type="text" name="username" placeholder="Username" v-model="username"/>
     </div>
     &nbsp;
     <div class="search">
-      <input type="password" name="password" placeholder="Password"/>
+      <input type="password" name="password" placeholder="Password" v-model="password"/>
     </div>
     &nbsp;
     <div class="search">
-      <input type="button" name="submit" value="Log In"/>
+      <input type="button" name="submit" value="Log In" @click="login"/>
     </div>
   </form>
 </section>

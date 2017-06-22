@@ -1,8 +1,8 @@
+'use strict';
+
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
-const mocha = require('gulp-mocha');
 const browserSync = require('browser-sync');
-const port = process.env.APP_PORT;
 
 
 gulp.task('nodemon', () => {
@@ -21,4 +21,4 @@ gulp.task('hot-reload', () => {
 });
 
 
-gulp.task('default', ['nodemon']);
+gulp.task('default', ['nodemon', 'hot-reload']);

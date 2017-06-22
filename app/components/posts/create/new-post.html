@@ -1,0 +1,19 @@
+<section class="post center">
+  <form>
+    <div class="search">
+      <input type="text" placeholder="Title" v-model="post.title">
+    </div>
+    <br/>
+    <div class="serach">
+      <quill-editor ref="myTextEditor"
+                    v-model="post.body"
+                    :options="editorOption">
+      </quill-editor>
+      <div class="pull-right">
+        <br/>
+        <button type="button" @click="save">Save As Draft</button>
+        <button type="button" @click="publish">Publish</button>
+      </div>
+    </div>
+  </form>
+</section>
